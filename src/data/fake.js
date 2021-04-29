@@ -17,6 +17,12 @@ const airports = [
     cat: colors.lifr,
     raw: "Raw Data",
   },
+  {
+    key: 3,
+    id: "KBGR",
+    cat: colors.mvfr,
+    raw: "Raw Data",
+  },
 ];
 
 const Data = { airports };

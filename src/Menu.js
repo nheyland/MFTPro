@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
-const Menu = () => {
+const Menu = ({ menu, setMenu }) => {
+  const menuWindow = useRef();
+  useEffect(() => {
+    document.addEventListener(
+      "mousedown",
+      (e) => !menuWindow.current.contains(e.target) && setMenu(false)
+    );
+  }, [setMenu]);
+
   return (
-    <div>
-      <h1>Menu</h1>
-    </div>
+    <nav ref={menuWindow} style={{ width: menu ? "15rem" : "0" }}>
+      <a id="home" href="/">
+        Home
+      </a>
+      <a id="about" href="/about">
+        About
+      </a>
+      <a id="contact" href="/contact">
+        Contact
+      </a>
+      <a href="html">Settings</a>
+    </nav>
   );
 };
 

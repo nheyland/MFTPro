@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "./Title";
 import Menu from "./Menu";
 import Wx from "./Wx";
 
 import "./styles/general.scss";
+import Content from './Content';
 
 function App() {
+  const [menu, setMenu] = useState(false);
+
   return (
     <div className="App">
-      <Title />
+      <Title menu={menu} setMenu={setMenu} />
       <Wx />
-      <Menu />
+      <Menu menu={menu} setMenu={setMenu} />
+      <Content />
     </div>
   );
 }
