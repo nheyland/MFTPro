@@ -1,9 +1,10 @@
 import React from "react";
+import Flights from "./content/Flights";
 
 const Content = () => {
   return (
-    <div>   
-    
+    <div>
+      <Flights />
     </div>
   );
 };

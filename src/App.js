@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import Wx from "./Wx";
 
 import "./styles/general.scss";
-import Content from './Content';
+import Content from "./Content";
 
 function App() {
   const [menu, setMenu] = useState(false);

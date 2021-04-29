@@ -101,3 +101,11 @@ nav {
 .pointer {
   cursor: pointer;
 }
+
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border: 0.2rem solid $text;
+  font-size: 1.4rem;
+}
