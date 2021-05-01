@@ -1,45 +1,33 @@
 import React, { useState } from "react";
 import { CSVReader } from "react-papaparse";
+import { fileRead } from "./process/engine";
+import FadeIn from "../styles/fade";
+import Map from "./process/map";
+
 const Flights = () => {
-  const [flights, setFlights] = useState();
-  const [key, setKey] = useState();
-  const fileRead = (file) => {
-    const index = file.findIndex((x) => x.data[0] === "Flights Table");
-    setKey(() => file[index + 1].data);
-    let flights = [];
-    console.log(file[index + 1].data);
-    for (var i = index + 2; i < file.length; i++) {
-      flights.push(file[i].data);
-    }
-    setFlights(flights);
-  };
+  const [logbook, setLogbook] = useState();
+
   return (
-    <div>
-      <CSVReader onFileLoad={(x) => fileRead(x)} />
-      {flights && (
-        <table>
-          <tr>
-            {key.map((val) => (
-              <th
-                key={val}
-                onClick={() => {
-                  console.log(val);
-                }}
-              >
-                {val}
-              </th>
-            ))}
-          </tr>
-          {flights.map((flight) => (
-            <tr>
-              {flight.map((data) => (
-                <td>{data}</td>
-              ))}
-            </tr>
-          ))}
-        </table>
-      )}
-    </div>
+    <>
+      <FadeIn>
+        <CSVReader
+          visible={false}
+          onFileLoad={(x) => fileRead(x).then((data) => setLogbook(data))}
+          style={{
+            dropArea: {
+              marginTop: "2rem",
+              borderColor: "#253031",
+              borderRadius: 20,
+            },
+          }}
+        >
+          <h2 className="subheader">Drag and drop logbook csv here</h2>
+        </CSVReader>
+      </FadeIn>
+      <FadeIn>
+        <Map logbook={logbook} />
+      </FadeIn>
+    </>
   );
 };
 

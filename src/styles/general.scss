@@ -3,7 +3,7 @@ $text: #253031;
 $hover: #b4ddff;
 $inverseText: #eeeeee;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap");
-
+@import url("https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css");
 html {
   font-size: 62.5%;
   display: flex;
@@ -88,7 +88,6 @@ nav {
   transition: 0.1s linear;
   height: 100%;
   padding-top: 6rem;
-  justify-content: start;
   * {
     color: $inverseText;
     text-decoration: none;
@@ -108,4 +107,20 @@ td {
   border-collapse: collapse;
   border: 0.2rem solid $text;
   font-size: 1.4rem;
+}
+.map-container {
+  position: absolute;
+  width: 80rem;
+  height: 50rem;
+  border: 0.2rem solid $text;
+  z-index: 1101;
+  border-radius: 2rem;
+  margin-top: 2rem;
+  transition: 10s all ease-in-out;
+}
+.spinner {
+  background: transparent;
+  display: flex;
+  margin-top: 10rem;
+  justify-content: center;
 }
