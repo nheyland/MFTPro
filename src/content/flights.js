@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { CSVReader } from "react-papaparse";
 import { fileRead } from "./process/engine";
 import FadeIn from "../styles/fade";
-import Map from "./process/map";
 
-const Flights = () => {
-  const [logbook, setLogbook] = useState();
-
+const Flights = ({ setLogbook }) => {
   return (
     <>
       <FadeIn>
@@ -23,9 +20,6 @@ const Flights = () => {
         >
           <h2 className="subheader">Drag and drop logbook csv here</h2>
         </CSVReader>
-      </FadeIn>
-      <FadeIn>
-        <Map logbook={logbook} />
       </FadeIn>
     </>
   );
