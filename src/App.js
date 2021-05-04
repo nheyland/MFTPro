@@ -3,7 +3,9 @@ import Title from "./Title";
 import Menu from "./Menu";
 import Wx from "./Wx";
 
-import "./styles/general.scss";
+// import "./styles/general.scss";
+import "./styles/general.css";
+
 import Content from "./Content";
 
 function App() {
